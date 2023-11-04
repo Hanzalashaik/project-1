@@ -14,6 +14,10 @@ app.get("/",(req,res)=>{
 
 app.use("/user",userRouter)
 
+app.use((req, res, next) => {
+    res.status(404).send("Not Found -Invalid Route");
+    next();
+  });
 app.listen(PORT,(req,res)=>{
     console.log(`Server is Runnig at Port ${PORT}🚀`);
     
